@@ -51,7 +51,7 @@ class IPMIConnector(BaseConnector):
             return self.monitor(hostname, conn_params)
         else:
             allow_commands = {"start": "on", "stop": "off", "reboot": "reset"}
-            if not command in allow_commands.keys():
+            if command not in allow_commands.keys():
                 self.logger.warning("command %s is not supported" % command)
                 return False
             else:
